@@ -1,9 +1,9 @@
-function UserProfile({ user }) {
+function UserProfile(user) {
   return (
     <div>
       <h2>{user.name}</h2>
-      <p>Age: {user.age}</p>
-      <p>Bio: {props.bio}</p>
+      <p>{user.age}</p>
+      <p> {user.bio}</p>
     </div>
   );
 }
