@@ -2,6 +2,26 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import UserInfo from './UserInfo';
+
+function ProfilePage() {
+  return (
+    <div>
+      <h1>Profile Page</h1>
+      <UserInfo />
+    </div>
+  );
+}
+import UserDetails from './UserDetails';
+
+function UserInfo() {
+  return (
+    <div>
+      <h2>User Information</h2>
+      <UserDetails />
+    </div>
+  );
+}
 import Counter from './components/Counter';
 function App() {
   return (
