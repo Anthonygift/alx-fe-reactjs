@@ -37,3 +37,28 @@ export function RecipeList() {
     </div>
   );
 }
+import { Link } from 'react-router-dom';
+import { useRecipeStore } from './recipeStore';
+
+export function RecipeList() {
+  const recipes = useRecipeStore((state) => state.recipes);
+
+  return (
+    <div>
+      <h2>Recipes</h2>
+      {recipes.length === 0 ? (
+        <p>No recipes yet. Add one above!</p>
+      ) : (
+        <ul>
+          {recipes.map((recipe) => (
+            <li key={recipe.id}>
+              <Link to={`/recipe/${recipe.id}`}>
+                <strong>{recipe.title}</strong>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}

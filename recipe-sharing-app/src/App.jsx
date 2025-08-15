@@ -2,20 +2,35 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import RecipeList from './components/RecipeList';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AddRecipeForm from './components/AddRecipeForm';
+import { RecipeList } from './components/RecipeList';
+import { RecipeDetails } from './components/RecipeDetails';
+import { EditRecipeForm } from './components/EditRecipeForm';
 
 function App() {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Recipe Manager</h1>
-      <AddRecipeForm />
-      <RecipeList />
-    </div>
+    <Router>
+      <div style={{ padding: '20px' }}>
+        <h1>Recipe Manager</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <AddRecipeForm />
+                <RecipeList />
+              </>
+            }
+          />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+          <Route path="/edit/:id" element={<EditRecipeForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
-export default App;
 
 import create from 'zustand'
 
