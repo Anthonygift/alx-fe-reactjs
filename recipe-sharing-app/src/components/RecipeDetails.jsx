@@ -28,3 +28,4 @@ export function RecipeDetails() {
     </div>
   );
 }
+export default RecipeDetails;
