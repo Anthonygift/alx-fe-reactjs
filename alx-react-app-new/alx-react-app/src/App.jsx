@@ -22,6 +22,13 @@ function App() {
     </Router>
   );
 }
+import create from 'zustand'
+
+const useRecipeStore = create(set => ({
+  recipes: [],
+  addRecipe: (newRecipe) => set(state => ({ recipes: [...state.recipes, newRecipe] })),
+  setRecipes: (recipes) => set({ recipes })
+}));
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
