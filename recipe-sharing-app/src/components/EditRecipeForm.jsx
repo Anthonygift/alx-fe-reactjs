@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
 
-export function EditRecipeForm() {
+function EditRecipeForm() {
   const { id } = useParams();
   const navigate = useNavigate();
   const recipe = useRecipeStore((state) =>
@@ -13,8 +13,8 @@ export function EditRecipeForm() {
   const [title, setTitle] = useState(recipe?.title || '');
   const [ingredients, setIngredients] = useState(recipe?.ingredients || '');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault(); // <-- now matches exactly
     updateRecipe(Number(id), { title, ingredients });
     navigate(`/recipe/${id}`);
   };
@@ -30,16 +30,18 @@ export function EditRecipeForm() {
         type="text"
         placeholder="Recipe Title"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(event) => setTitle(event.target.value)}
         required
       />
       <input
         type="text"
         placeholder="Ingredients"
         value={ingredients}
-        onChange={(e) => setIngredients(e.target.value)}
+        onChange={(event) => setIngredients(event.target.value)}
       />
       <button type="submit">Save Changes</button>
     </form>
   );
 }
+
+export default EditRecipeForm;
