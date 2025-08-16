@@ -2,6 +2,29 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+// App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Import your pages
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Services from "./pages/Services";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} /> 
+        <Route path="/about" element={<About />} /> 
+        <Route path="/contact" element={<Contact />} /> 
+        <Route path="/services" element={<Services />} /> 
+      </Routes>
+    </Router>
+  );
+}
+
 
 function App() {
   const [count, setCount] = useState(0)
