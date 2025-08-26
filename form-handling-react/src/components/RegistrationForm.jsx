@@ -4,6 +4,82 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { useState } from "react";
+
+const RegistrationForm = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (!username) {
+      alert("Username is required!");
+      return;
+    }
+    if (!email) {
+      alert("Email is required!");
+      return;
+    }
+    if (!password) {
+      alert("Password is required!");
+      return;
+    }
+
+    // Submit values
+    console.log({ username, email, password });
+
+    // Reset after submission
+    setUsername("");
+    setEmail("");
+    setPassword("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="border p-2 rounded w-full"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="border p-2 rounded w-full"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="border p-2 rounded w-full"
+        />
+      </div>
+
+      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        Register
+      </button>
+    </form>
+  );
+};
+
+export default RegistrationForm;
 
 const RegistrationForm = () => {
   const [username, setUsername] = useState("");
