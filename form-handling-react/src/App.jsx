@@ -16,6 +16,22 @@ function App() {
     </div>
   );
 }
+import RegistrationForm from "./components/RegistrationForm";
+import FormikForm from "./components/FormikForm";
+
+function App() {
+  return (
+    <div className="p-6 space-y-8">
+      <h1 className="text-2xl font-bold">Controlled Registration Form</h1>
+      <RegistrationForm />
+
+      <h1 className="text-2xl font-bold">Formik + Yup Registration Form</h1>
+      <FormikForm />
+    </div>
+  );
+}
+
+export default App;
 
 export default App;
 
