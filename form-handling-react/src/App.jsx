@@ -2,6 +2,22 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import RegistrationForm from "./components/RegistrationForm"; // controlled form
+import FormikForm from "./components/formikForm"; // formik form
+
+function App() {
+  return (
+    <div className="App">
+      {/* Controlled Form */}
+      <RegistrationForm />
+
+      {/* Formik Form */}
+      <FormikForm />
+    </div>
+  );
+}
+
+export default App;
 
 function App() {
   const [count, setCount] = useState(0)
