@@ -3,6 +3,71 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useState } from "react";
+
+const RegistrationForm = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!username || !email || !password) {
+      alert("All fields are required!");
+      return;
+    }
+
+    console.log({ username, email, password });
+
+    // reset after submission
+    setUsername("");
+    setEmail("");
+    setPassword("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          value={username} // controlled value
+          onChange={(e) => setUsername(e.target.value)} // updates state
+          className="border p-2 rounded w-full"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          value={email} // controlled value
+          onChange={(e) => setEmail(e.target.value)} // updates state
+          className="border p-2 rounded w-full"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          value={password} // controlled value
+          onChange={(e) => setPassword(e.target.value)} // updates state
+          className="border p-2 rounded w-full"
+        />
+      </div>
+
+      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        Register
+      </button>
+    </form>
+  );
+};
+
 
 const RegistrationForm = () => {
   // State management for controlled inputs
